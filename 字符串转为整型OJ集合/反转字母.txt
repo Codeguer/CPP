@@ -1,0 +1,21 @@
+https://leetcode-cn.com/problems/reverse-only-letters/submissions/
+class Solution {
+public:
+    string reverseOnlyLetters(string s) {
+        string::iterator it=s.begin();
+        string::iterator rit=s.end()-1;
+        while(it<rit){
+            while(it<rit&&!isalpha(*it)){
+                ++it;
+            }
+            while(it<rit&&!isalpha(*rit)){
+                --rit;
+            }
+           swap(*it,*rit);
+            ++it;
+            --rit;
+        }
+        return s;
+    }
+};
+

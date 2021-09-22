@@ -1,0 +1,25 @@
+https://leetcode-cn.com/problems/valid-palindrome/
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        string::iterator it=s.begin();
+        string::iterator rit=s.end()-1;
+        while(it<rit){
+            while(it<rit&&!isalnum(*it)){
+                ++it;
+            }
+            while(it<rit&&!isalnum(*rit)){
+                --rit;
+            }
+            if(isdigit(*it)){
+                if(*it!=*rit)return false;
+            }
+            else{
+                if(tolower(*it)!=tolower(*rit))return false;
+            }
+            it++;
+            rit--;
+        }
+        return true;
+    }
+};

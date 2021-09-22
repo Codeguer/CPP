@@ -1,0 +1,49 @@
+https://leetcode-cn.com/problems/add-strings/
+class Solution {
+public:
+    string addStrings(string num1, string num2) {
+        string num3;
+        int flag=0;
+        string::reverse_iterator rt1=num1.rbegin();
+        string::reverse_iterator rt2=num2.rbegin();
+        while(rt1<num1.rend()&&rt2<num2.rend()){
+            int num=*rt1-'0'+*rt2-'0';
+            if(flag==1)num++;
+            flag=0;
+            if(num>=10){
+                num%=10;
+                flag=1;
+            }
+            num3+=(num+'0');
+            rt1++;
+            rt2++;
+        }
+        while(rt1<num1.rend()){
+            int num=*rt1-'0';
+            if(flag==1)num++;
+            flag=0;
+            if(num>=10){
+                num%=10;
+                flag=1;
+            }
+            num3+=(num+'0');
+            rt1++;
+        }
+
+        while(rt2<num2.rend()){
+            int num=*rt2-'0';
+            if(flag==1)num++;
+            flag=0;
+            if(num>=10){
+                num%=10;
+                flag=1;
+            }
+            num3+=(num+'0');
+            rt2++;
+        }
+        if(flag==1)num3+='1';
+        reverse(num3.begin(),num3.end());
+        return num3;
+    }
+};
+
