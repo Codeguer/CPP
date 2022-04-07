@@ -1,0 +1,15 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+int main(){
+    int a_del_b,b_del_c,a_add_b,b_add_c;
+    int A,B,C;
+    cin>>a_del_b>>b_del_c>>a_add_b>>b_add_c;
+    A=(a_del_b+a_add_b)>>1;
+    B=(b_del_c+b_add_c)>>1;
+    C=B-b_del_c;
+    if(((A-B)!=a_del_b)||((B-C)!=b_del_c)||((A+B)!=a_add_b)||((B-C)!=b_del_c))
+cout<<"No"<<endl;
+    else cout<<A<<" "<<B<<" "<<C<<endl;
+    return 0;
+}
